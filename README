@@ -4,7 +4,7 @@ Best used with termux as thats how its setup if you hav a better way go for it.
 
 Sample output:
 
-`Here is a random off-road day trip idea in Southern Colorado:
+```Here is a random off-road day trip idea in Southern Colorado:
 
 Taylor Mountain: This 4x4 trail near Almont offers scenic views of the Elk Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving.
 
@@ -14,4 +14,4 @@ https://www.google.com/maps/dir/123+S+Agincourt+Ave,+Pueblo,+CO+81001,+USA/Taylo
 
 Select an option:
 1. Send to text message using Termux-sms
-2. Exit`
+2. Exit```
