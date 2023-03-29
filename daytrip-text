@@ -1,0 +1,184 @@
+#!/bin/bash
+numbers=(7372173878,7372173879)
+# List of off-road day trip ideas in Southern Colorado
+sites=(
+	"Alpine Loop: This 65-mile loop near Lake City offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Alpine Tunnel: This 4x4 trail near Pitkin offers scenic views of the Sawatch Range and passes through historic railroad sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Alta Lakes: This 4x4 trail near Telluride offers scenic views of the San Juan Mountains and passes by the Alta Lakes. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Altoona Ridge: This 4x4 trail near Lake City offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"American Basin: This 4x4 trail near Lake City offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Animas Forks: This 4x4 trail near Silverton offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Argentine Pass: This 4x4 trail near Georgetown offers scenic views of the Front Range and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Badger Flats: This 4x4 trail near Salida offers scenic views of the Sawatch Range and passes through aspen groves and high-alpine meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Bald Mountain: This 4x4 trail near Breckenridge offers scenic views of the Tenmile Range and passes through aspen forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Bear Creek Trail: This 4x4 trail near Ouray offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Billings Lake: This 4x4 trail near Red Feather Lakes offers scenic views of the Medicine Bow Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Billy Creek: This 4x4 trail near Pagosa Springs offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Black Bear Pass: This 9-mile trail near Telluride offers some of the most challenging off-road driving in Colorado, with steep drop-offs and narrow switchbacks. It is only suitable for experienced drivers with high-clearance vehicles."
+ 	"Boulder Creek: This 4x4 trail near Nederland offers scenic views of the Front Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Bridal Veil Falls: This 4x4 trail near Telluride leads to a beautiful waterfall and offers scenic views of the San Juan Mountains. The trail is suitable for high-clearance vehicles."
+	"Broken Arrow: This 4x4 trail near Montrose offers scenic views of the Uncompahgre Plateau and passes through narrow canyons. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Broken Hill: This 4x4 trail near Cripple Creek offers scenic views of Pikes Peak and passes through rocky terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Browns Lake: This 4x4 trail near Buena Vista offers scenic views of the Collegiate Peaks and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Bruno Gulch: This 4x4 trail near Silverton offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Cactus Park: This 4x4 trail near Grand Junction offers scenic views of the Grand Mesa and passes through high-desert terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"California Gulch: This 4x4 trail near Leadville offers scenic views of the Sawatch Range and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Cascade Creek: This 4x4 trail near Durango offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Chalk Creek: This 4x4 trail near Nathrop offers scenic views of the Collegiate Peaks and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Chimney Rock: This 4x4 trail near Durango offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Chinaman Gulch: This 4x4 trail near Buena Vista offers challenging off-road driving with steep inclines, declines, and obstacles. The trail is suitable for experienced drivers with high-clearance vehicles."
+	"China Wall: This 4x4 trail near Lake George offers scenic views of Pikes Peak and passes through rocky terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Cinnamon Pass: This 20-mile pass near Lake City offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Clear Lake: This 4x4 trail near Silverton offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Colorado Trail: This 567-mile trail from Denver to Durango offers a variety of off-road sections suitable for high-clearance vehicles, including Kenosha Pass, Georgia Pass, and Stony Pass."
+	"Corkscrew Gulch: This 4x4 trail near Silverton offers stunning views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Corkscrew Pass: This 4x4 trail near Ouray offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Crystal City: This 4x4 trail near Marble offers scenic views of the Elk Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Crystal Mill: This 4x4 trail near Marble offers scenic views of the Elk Mountains and passes by a historic mill. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Cumberland Pass: This 4x4 trail near Pitkin offers scenic views of the Sawatch Range and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Dakan Road: This 4x4 trail near Grand Junction offers scenic views of the Book Cliffs and passes through desert terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Devil's Punchbowl: This 4x4 trail near Lake City offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Electric Pass: This 4x4 trail near Aspen offers scenic views of the Elk Mountains and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Elevenmile Canyon: This 4x4 trail near Lake George offers scenic views of Eleven Mile Canyon Reservoir and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Elk Park: This 4x4 trail near Durango offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Engineer Pass: This 4x4 trail near Lake City offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Geneva Creek: This 4x4 trail near Grant offers scenic views of the Front Range and passes through aspen groves and high-alpine meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Glenwood Canyon: This scenic drive near Glenwood Springs offers views of the Colorado River and the surrounding canyon walls. The road is suitable for all vehicles."
+	"Gold Belt Tour: This 135-mile trail near Colorado Springs passes through historic mining towns and scenic mountain vistas. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Gold Camp Road: This 4x4 trail near Colorado Springs offers scenic views of the Front Range and passes through tunnels and abandoned mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Governor Basin: This 4x4 trail near Ouray offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Grand Mesa: This scenic drive near Grand Junction offers views of the surrounding mesa and forests. The road is suitable for all vehicles."
+	"Greenhorn Trail: This 4x4 trail near Salida offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Grizzly Lake: This 4x4 trail near Buena Vista offers scenic views of the Collegiate Peaks and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Guanella Pass: This 23-mile trail near Georgetown offers scenic views of the Continental Divide and passes through alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hagerman Pass: This 4x4 trail near Leadville offers scenic views of the surrounding mountains and valleys. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hall Valley: This 4x4 trail near Fairplay offers scenic views of the Mosquito Range and passes through high-alpine tundra. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hancock Pass - Tomichi Pass: This 14-mile trail near Salida offers scenic views of the Sawatch Range and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hayden Pass: This 4x4 trail near Coaldale offers scenic views of the Sangre de Cristo Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hell's Revenge: This 4x4 trail near Moab, Utah offers challenging off-road driving with steep inclines, declines, and obstacles. The trail is suitable for experienced drivers with high-clearance vehicles."
+	"Holy Cross City: This 4x4 trail near Minturn offers scenic views of the Sawatch Range and passes through alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hotel Draw: This 4x4 trail near Buena Vista offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Hurricane Pass: This 4x4 trail near Silverton offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Imogene Pass: This 4x4 trail near Telluride offers scenic views of the San Juan Mountains and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Imperial Sand Dunes: This 4x4 trail near Alamosa offers scenic views of the Great Sand Dunes and passes through sand dunes and wetlands. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Independence Pass: This 20-mile trail near Aspen offers scenic views of the Sawatch Range and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Jeep Arch: This 4x4 trail near Moab, Utah offers challenging off-road driving with steep inclines, declines, and obstacles. The trail is suitable for experienced drivers with high-clearance vehicles."
+	"Jones Pass: This 4x4 trail near Winter Park offers scenic views of the Front Range and passes through alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Kebler Pass: This scenic drive near Crested Butte offers views of the surrounding mountains and forests, as well as access to hiking trails. The road is suitable for all vehicles."
+	"Kelly Flats: This 4x4 trail near Fort Collins offers scenic views of the Front Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Kingston Peak: This 4x4 trail near Idaho Springs offers scenic views of the Front Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"La Garita Pass: This 4x4 trail near Creede offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Last Dollar Road: This scenic drive near Telluride offers views of the San Juan Mountains and passes through rural areas and ranches. The road is suitable for all vehicles."
+	"Lead King Basin: This 4x4 trail near Marble leads to a beautiful basin and offers views of the surrounding mountains. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Longwater Gulch: This 4x4 trail near Colorado Springs offers scenic views of Pikes Peak and the surrounding area. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Maggie Gulch: This 4x4 trail near Ouray offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Marshall Pass: This 4x4 trail near Salida offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Medano Pass: This 22-mile trail near Great Sand Dunes National Park offers scenic views of the Sangre de Cristo Mountains and passes through sand dunes and wetlands. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Monarch Pass: This 4x4 trail near Salida offers scenic views of the Sawatch Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Mosquito Pass: This 4x4 trail near Leadville offers views of the surrounding mountains and valleys, as well as access to historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Mount Antero: This 4x4 trail near Buena Vista offers scenic views of the Sawatch Range and passes through high-alpine tundra. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Ophir Pass: This 4x4 trail near Telluride offers stunning views of the San Juan Mountains. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Owl Creek Pass: This 4x4 trail near Ridgway offers views of the surrounding mountains and valleys, as well as access to hiking trails. The trail is suitable for high-clearance vehicles."
+	"Pearl Pass: This 4x4 trail near Aspen offers scenic views of the Elk Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Pierson Park: This 4x4 trail near Montrose offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Pikes Peak Highway: This 19-mile trail near Colorado Springs offers scenic views of Pikes Peak and the surrounding area. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Pinyon Flats Campground: This off-road area near Alamosa offers trails with views of the Great Sand Dunes National Park and Preserve. The trails are suitable for high-clearance vehicles."
+	"Pomeroy Lakes: This 4x4 trail near Silverton offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Porcupine Rim: This 4x4 trail near Moab, Utah offers challenging off-road driving with steep inclines, declines, and obstacles. The trail is suitable for experienced drivers with high-clearance vehicles."
+	"Porphyry Gulch: This 4x4 trail near Silverton offers stunning views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Poughkeepsie Gulch: This 4x4 trail near Silverton offers challenging off-road driving with steep inclines and declines. The trail is only suitable for experienced drivers with high-clearance vehicles."
+	"Radical Hill: This 4x4 trail near Breckenridge offers scenic views of the Continental Divide and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Rampart Range Road: This 4x4 trail near Colorado Springs offers scenic views of the Front Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Red and White Mountain: This 4x4 trail near Vail offers scenic views of the Gore Range and passes through aspen groves and high-alpine meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Red Cone Pass: This 6-mile pass near Breckenridge offers scenic views of the Continental Divide. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Red Cone: This 4x4 trail near Montezuma offers scenic views of the Gore Range and passes through rocky terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Red Elephant Hill: This 4x4 trail near Idaho Springs offers scenic views of the Front Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Rollins Pass: This 4x4 trail near Winter Park offers scenic views of the Continental Divide and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"San Juan Skyway: This scenic drive near Durango offers views of the San Juan Mountains and passes through historic mining towns. The road is suitable for all vehicles."
+	"Schofield Pass: This 4x4 trail near Crested Butte offers stunning views of the surrounding mountains and passes through the Devils Punchbowl. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Sevenmile Creek: This 4x4 trail near Steamboat Springs offers scenic views of the Park Range and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Silverton to Animas Forks: This 4x4 trail near Silverton offers access to historic mining sites and ghost towns, as well as scenic views of the surrounding mountains. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Spring Creek: This 4x4 trail near Montrose offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Stony Pass: This 55-mile trail near Silverton offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Taylor Mountain: This 4x4 trail near Almont offers scenic views of the Elk Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Taylor Pass: This 15-mile trail near Aspen offers scenic views of the Elk Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Tincup Pass: This 4x4 trail near St. Elmo offers scenic views of the Sawatch Range and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Tomboy Road: This 4x4 trail near Telluride offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Tomichi Pass: This 4x4 trail near Sargents offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Trail Ridge Road: This scenic drive near Estes Park offers views of the Rocky Mountains and passes through Rocky Mountain National Park. The road is suitable for all vehicles."
+	"Uncompahgre Plateau: This 4x4 trail near Montrose offers scenic views of the San Juan Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Wager Gulch: This 4x4 trail near Silverton offers access to historic mining sites and ghost towns, as well as scenic views of the surrounding mountains. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Warden Gulch: This 4x4 trail near Aspen offers scenic views of the Elk Mountains and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Webber Creek: This 4x4 trail near Salida offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Webster Pass: This 4x4 trail near Keystone offers scenic views of the Front Range and passes through high-alpine tundra and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"West Elk Loop: This scenic drive near Crested Butte offers views of the surrounding mountains and valleys, as well as access to hiking trails. The road is suitable for all vehicles."
+	"Weston Pass: This 16-mile trail near Fairplay offers scenic views of the Mosquito Range and passes through high-alpine tundra. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Wheeler Geological Area: This 4x4 trail near Creede offers scenic views of the San Juan Mountains and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"White Rim Road: This 100-mile loop near Moab, Utah offers views of Canyonlands National Park and the surrounding desert landscape. The road is suitable for high-clearance vehicles and requires some technical driving."
+	"Williams Pass: This 4x4 trail near Lake City offers scenic views of the San Juan Mountains and passes through historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Yampa River Road: This 4x4 trail near Craig offers scenic views of the Yampa River and passes through forests and meadows. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Yankee Boy Basin: This 4x4 trail near Ouray offers scenic views of wildflowers and waterfalls, as well as access to historic mining sites. The trail is suitable for high-clearance vehicles."
+	"Zapata Falls: This 4x4 trail near Alamosa offers scenic views of the San Luis Valley and passes through desert terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
+	"Zig Zag Pass: This 4x4 trail near Buena Vista offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+
+# Randomly select an off-road day trip idea from the list
+selected_site=${sites[$RANDOM % ${#sites[@]}]}
+
+# Generate the Google Maps link for the selected site
+home_address="1916+N+Salem+Ave,+Pueblo,+CO+81001,+USA"
+selected_site_name=$(echo "$selected_site" | awk -F: '{print $1}' | sed 's/ /+/g')
+google_maps_link="https://www.google.com/maps/dir/$home_address/$selected_site_name,+Colorado"
+
+# Print out the selected off-road day trip idea and Google Maps link
+printf "Here is a random off-road day trip idea in Southern Colorado:\n\n"
+printf "$selected_site\n\n"
+printf "Here is the Google Maps link to the destination:\n\n"
+printf "$google_maps_link\n\n"
+
+# Prompt the user to select an option
+printf "Select an option:\n"
+printf "1. Send to text message using Termux-sms\n"
+printf "2. Exit\n"
+read -r choice
+
+# Process the user's choice
+case "$choice" in
+	1)
+		# Send the output to a text message using Termux-sms
+		termux-sms-send -n "$numbers" "$selected_site\n\n$google_maps_link"
+		printf "\nOutput sent to text message.\n"
+		;;
+	2)
+		# Exit the script
+		printf "\nExiting...\n"
+		exit 0
+		;;
+	*)
+		# Invalid choice
+		printf "\nInvalid choice. Exiting...\n"
+		exit 1
+		;;
+esac
