@@ -1,5 +1,11 @@
 #!/bin/bash
-numbers=(7372173878,7372173879)
+
+# Add the phone numbers you want to send the trip and map to
+numbers="5555555555,5555555555"
+
+# It's best to haveyour home address in there or change to any address really just make ure you have the [+] intead of [SPACE]
+home_address="123+S+Agincourt+Ave,+Pueblo,+CO+81001,+USA"
+
 # List of off-road day trip ideas in Southern Colorado
 sites=(
 	"Alpine Loop: This 65-mile loop near Lake City offers scenic views of the San Juan Mountains and passes through ghost towns and historic mining sites. The trail is suitable for high-clearance vehicles and requires some technical driving."
@@ -120,43 +126,20 @@ sites=(
 	"Yankee Boy Basin: This 4x4 trail near Ouray offers scenic views of wildflowers and waterfalls, as well as access to historic mining sites. The trail is suitable for high-clearance vehicles."
 	"Zapata Falls: This 4x4 trail near Alamosa offers scenic views of the San Luis Valley and passes through desert terrain. The trail is suitable for high-clearance vehicles and requires some technical driving."
 	"Zig Zag Pass: This 4x4 trail near Buena Vista offers scenic views of the Sawatch Range and passes through high-alpine meadows and forests. The trail is suitable for high-clearance vehicles and requires some technical driving."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	)
+)
 
 # Randomly select an off-road day trip idea from the list
 selected_site=${sites[$RANDOM % ${#sites[@]}]}
 
 # Generate the Google Maps link for the selected site
-home_address="1916+N+Salem+Ave,+Pueblo,+CO+81001,+USA"
 selected_site_name=$(echo "$selected_site" | awk -F: '{print $1}' | sed 's/ /+/g')
 google_maps_link="https://www.google.com/maps/dir/$home_address/$selected_site_name,+Colorado"
 
 # Print out the selected off-road day trip idea and Google Maps link
 printf "Here is a random off-road day trip idea in Southern Colorado:\n\n"
-printf "$selected_site\n\n"
+printf "%s\n\n" "$selected_site"
 printf "Here is the Google Maps link to the destination:\n\n"
-printf "$google_maps_link\n\n"
+printf "%s\n\n"  "$google_maps_link"
 
 # Prompt the user to select an option
 printf "Select an option:\n"
